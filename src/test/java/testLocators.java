@@ -18,8 +18,8 @@ public class testLocators {
             driver.findElement(By.id("item_4_title_link"));
             driver.findElement(By.xpath("//*[@id='item_4_img_link']/../..//button"));
             driver.findElement(By.xpath("//*[@id = 'item_4_img_link']//img")).click();
-            driver.findElement(By.className("btn_primary"));
-            driver.findElement(By.className("inventory_details_back_button")).click();
+            driver.findElement(By.cssSelector("div.inventory_details_price ~ button"));
+            driver.findElement(By.cssSelector("div.inventory_details > button")).click();
             driver.findElement(By.id("item_0_title_link"));
             driver.findElement(By.xpath("//*[@id='item_0_img_link']/../..//button")).click();
             driver.findElement(By.xpath("//*[@id = 'item_0_img_link']//img"));
