@@ -49,8 +49,4 @@ public class CheckoutPage extends BasePage {
         String zipCodePlaceholder = driver.findElement(ZIP_INPUT).getAttribute("placeholder");
         Assert.assertEquals(zipCodePlaceholder, expectedZipCodePlaceholder, "Не совпадают плейсхолдер имени");
     }
-
-
-
-
 }

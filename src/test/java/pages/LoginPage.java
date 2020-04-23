@@ -45,5 +45,4 @@ public class LoginPage extends BasePage {
         String actualText =  driver.findElement(ERROR_TEXT).getText();
         Assert.assertEquals(actualText,expectedErrorOfIncorrectLogin, "Текст не совпадает" );
     }
-
 }

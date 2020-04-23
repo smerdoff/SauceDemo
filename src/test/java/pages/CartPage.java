@@ -35,5 +35,4 @@ public class CartPage extends BasePage {
     public void clickCheckout(){
         driver.findElement(CHECKOUT_BUTTON).click();
     }
-
 }

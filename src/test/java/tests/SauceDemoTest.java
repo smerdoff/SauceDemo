@@ -63,8 +63,6 @@ public class SauceDemoTest extends BaseTest {
         checkoutPage.lastNamePlaceholderTest();
         checkoutPage.zipCodePlaceholderTest();
     }
-
-
 }
 
 

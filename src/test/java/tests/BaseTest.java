@@ -33,5 +33,4 @@ public class BaseTest {
     public void closeBrowser() {
         driver.quit();
     }
-
 }
