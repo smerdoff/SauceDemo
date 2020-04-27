@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 
@@ -22,6 +23,7 @@ public class LoginPage extends BasePage {
 
     public void openPage(){
         driver.get(LOGIN_URL);
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(LOGIN_BUTTON));
     }
 
     public void login (String userName, String password){
@@ -35,7 +37,7 @@ public class LoginPage extends BasePage {
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
         String actualText =  driver.findElement(ERROR_TEXT).getText();
-        Assert.assertEquals(actualText,expectedErrorOfLockedUser, "Текст не совпадает" );
+        Assert.assertEquals(actualText,expectedErrorOfLockedUser, "Неправильное отображение текста сообщения об ошибке после входа в приложение как заблокированный юзер" );
     }
 
     public void incorrectLogin (String userName, String password){
@@ -43,6 +45,6 @@ public class LoginPage extends BasePage {
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
         driver.findElement(LOGIN_BUTTON).click();
         String actualText =  driver.findElement(ERROR_TEXT).getText();
-        Assert.assertEquals(actualText,expectedErrorOfIncorrectLogin, "Текст не совпадает" );
+        Assert.assertEquals(actualText,expectedErrorOfIncorrectLogin, "Неправильное отображение текста сообщения после введения некорректных кредов" );
     }
 }

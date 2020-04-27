@@ -1,5 +1,6 @@
 package tests;
 
+import org.aopalliance.intercept.Invocation;
 import org.testng.annotations.Test;
 
 
@@ -17,7 +18,7 @@ public class SauceDemoTest extends BaseTest {
     }
 
     @Test
-    public void loginOfLockedOutUer() {
+    public void loginOfLockedOutUser() {
         loginPage.openPage();
         loginPage.blockedLogin("locked_out_user", "secret_sauce");
     }
@@ -37,6 +38,23 @@ public class SauceDemoTest extends BaseTest {
         cartPage.openPage();
         cartPage.clickCheckout();
         checkoutPage.fillInputs("Firstname", "LastName", "11111");
+        checkoutPage.checkoutStepTwoURLValidation();
+    }
+
+    @Test
+    public void purchaseTest(){
+        loginPage.openPage();
+        loginPage.login("standard_user", "secret_sauce");
+        productsPage.addToCart("Sauce Labs Fleece Jacket");
+        productsPage.addToCart("Sauce Labs Onesie");
+        cartPage.openPage();
+        cartPage.clickCheckout();
+        checkoutPage.fillInputs("Firstname", "LastName", "11111");
+        overviewPage.validateNumberOfProducts(2);
+        overviewPage.validateProductDetails("Sauce Labs Fleece Jacket", 1, "$49.99");
+        overviewPage.validateProductDetails("Sauce Labs Onesie", 1, "$7.99");
+        overviewPage.clickFinish();
+        overviewPage.finishURLValidation();
     }
 
     @Test

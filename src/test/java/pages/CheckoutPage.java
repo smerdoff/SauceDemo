@@ -11,6 +11,7 @@ public class CheckoutPage extends BasePage {
     }
 
     private String CHECKOUT_URL = "https://www.saucedemo.com/checkout-step-one.html";
+    private String CHECKOUT2_URL = "https://www.saucedemo.com/checkout-step-two.html";
     private static final By FIRST_NAME_INPUT = By.id("first-name");
     private static final By LAST_NAME_INPUT = By.id("last-name");
     private static final By ZIP_INPUT = By.id("postal-code");
@@ -30,6 +31,10 @@ public class CheckoutPage extends BasePage {
         driver.findElement(ZIP_INPUT).sendKeys(zipCode);
         driver.findElement(CONTINUE_BUTTON).click();
     }
+    public void checkoutStepTwoURLValidation(){
+        String URL = driver.getCurrentUrl();
+        Assert.assertEquals(CHECKOUT2_URL, URL, "The wrong page opened OR page is not opened ");
+    }
 
     public void clickCancel(){
         driver.findElement(CANCEL_BUTTON).click();
@@ -42,11 +47,11 @@ public class CheckoutPage extends BasePage {
 
     public void lastNamePlaceholderTest(){
         String lastNamePlaceholder = driver.findElement(LAST_NAME_INPUT).getAttribute("placeholder");
-        Assert.assertEquals(lastNamePlaceholder, expectedlastnamePlaceholder, "Не совпадают плейсхолдер имени");
+        Assert.assertEquals(lastNamePlaceholder, expectedlastnamePlaceholder, "Не совпадают плейсхолдер фамилии");
     }
 
     public void zipCodePlaceholderTest(){
         String zipCodePlaceholder = driver.findElement(ZIP_INPUT).getAttribute("placeholder");
-        Assert.assertEquals(zipCodePlaceholder, expectedZipCodePlaceholder, "Не совпадают плейсхолдер имени");
+        Assert.assertEquals(zipCodePlaceholder, expectedZipCodePlaceholder, "Не совпадают плейсхолдер зипкода");
     }
 }
