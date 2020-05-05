@@ -1,8 +1,8 @@
 package tests;
-
-import org.aopalliance.intercept.Invocation;
+    
+import modeles.User;
 import org.testng.annotations.Test;
-
+import pages.CartPage;
 
 
 public class SauceDemoTest extends BaseTest {
@@ -80,6 +80,19 @@ public class SauceDemoTest extends BaseTest {
         checkoutPage.firstNamePlaceholderTest();
         checkoutPage.lastNamePlaceholderTest();
         checkoutPage.zipCodePlaceholderTest();
+    }
+
+    @Test
+    public void loginTwoTest(){
+        User user = new User("standard_user", "secret_sauce");
+        loginPageFactory
+                .openPage()
+                .login(user)
+                .addToCart("Sauce Labs Fleece Jacket")
+                .addToCart("Sauce Labs Onesie")
+                .clickCart()
+                .validateNumberOfProducts(2)
+                ;
     }
 }
 

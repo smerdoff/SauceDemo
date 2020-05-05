@@ -2,18 +2,32 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class OverviewPage extends BasePage {
-    public OverviewPage(WebDriver driver) {
-        super(driver);
-    }
 
     private static final By CART_ITEM = By.cssSelector(".cart_item");
     private String productQuantityLocator = "//*[contains(text(),'%s')]/../../..//div[@class = 'summary_quantity']";
     private String productPriceLocator = "//*[contains(text(),'%s')]/../..//div[@class = 'inventory_item_price']";
     private static final By FINISH_BUTTON = By.cssSelector(".cart_button");
     private String FINISH_URL = "https://www.saucedemo.com/checkout-complete.html";
+    public OverviewPage(WebDriver driver) {
+        super(driver);
+    }
+
+    @Override
+    protected BasePage openPage() {
+        driver.get(FINISH_URL);
+        isPageOpened();
+        return this;
+    }
+
+    @Override
+    protected BasePage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(FINISH_BUTTON));
+        return this;
+    }
 
     public void validateNumberOfProducts(int number){
         Assert.assertEquals(driver.findElements(CART_ITEM).size(),number, "Количество айтемов неверное");

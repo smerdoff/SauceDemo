@@ -15,6 +15,7 @@ public class BaseTest {
     CartPage cartPage;
     CheckoutPage checkoutPage;
     OverviewPage overviewPage;
+    LoginPageFactory loginPageFactory;
 
     @BeforeMethod
     public void setUp() {
@@ -26,7 +27,8 @@ public class BaseTest {
         cartPage = new CartPage(driver);
         checkoutPage = new CheckoutPage(driver);
         overviewPage = new OverviewPage(driver);
-}
+        loginPageFactory = new LoginPageFactory(driver);
+    }
 
     @AfterMethod(alwaysRun =true)
     public void closeBrowser() {
