@@ -16,6 +16,8 @@ public class BaseTest {
     CheckoutPage checkoutPage;
     OverviewPage overviewPage;
     LoginPageFactory loginPageFactory;
+    InventoryItemPage inventoryItemPage;
+    CheckoutPageFactory checkoutPageFactory;
 
     @BeforeMethod
     public void setUp() {
@@ -28,6 +30,8 @@ public class BaseTest {
         checkoutPage = new CheckoutPage(driver);
         overviewPage = new OverviewPage(driver);
         loginPageFactory = new LoginPageFactory(driver);
+        inventoryItemPage = new InventoryItemPage(driver);
+        checkoutPageFactory = new CheckoutPageFactory(driver);
     }
 
     @AfterMethod(alwaysRun =true)
