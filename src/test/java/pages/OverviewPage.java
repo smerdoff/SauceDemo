@@ -11,6 +11,7 @@ public class OverviewPage extends BasePage {
     private String productQuantityLocator = "//*[contains(text(),'%s')]/../../..//div[@class = 'summary_quantity']";
     private String productPriceLocator = "//*[contains(text(),'%s')]/../..//div[@class = 'inventory_item_price']";
     private static final By FINISH_BUTTON = By.cssSelector(".cart_button");
+    private static final By CANCEL_BUTTON = By.cssSelector(".cart_cancel_link");
     private String FINISH_URL = "https://www.saucedemo.com/checkout-complete.html";
     public OverviewPage(WebDriver driver) {
         super(driver);
@@ -44,6 +45,13 @@ public class OverviewPage extends BasePage {
     public void clickFinish(){
         driver.findElement(FINISH_BUTTON).click();
     }
+
+    public ProductsPage clickCancel(){
+        driver.findElement(CANCEL_BUTTON).click();
+        return new ProductsPage(driver);
+    }
+
+
 
     public void finishURLValidation(){
         String URL = driver.getCurrentUrl();
