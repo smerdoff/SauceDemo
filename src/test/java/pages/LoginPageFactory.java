@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import utils.AllureUtils;
 
 public class LoginPageFactory extends BasePage {
 
@@ -34,9 +35,17 @@ public class LoginPageFactory extends BasePage {
         return this;
     }
 
-    public ProductsPage login (User user){
+    public ProductsPage loginViaModel (User user){
         userNameInput.sendKeys(user.getUserName());
         passwordInput.sendKeys(user.getPassword());
+        loginButton.click();
+        return new ProductsPage(driver);
+    }
+
+    public ProductsPage login (String user, String password) {
+        userNameInput.sendKeys(user);
+        passwordInput.sendKeys(password);
+        AllureUtils.takeScreenshot(driver);
         loginButton.click();
         return new ProductsPage(driver);
     }
