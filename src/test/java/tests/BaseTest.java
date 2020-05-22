@@ -7,6 +7,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import pages.*;
 import steps.SauceDemoSteps;
+import utils.CapabilitiesGenerator;
 
 import java.util.concurrent.TimeUnit;
 
@@ -24,8 +25,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp(ITestContext context) {
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(CapabilitiesGenerator.getChromeOptions());
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         loginPage=new LoginPage(driver);
         productsPage = new ProductsPage(driver);
