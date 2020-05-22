@@ -58,7 +58,7 @@ public class SauceDemoTest extends BaseTest {
     public void validateItemDetailsInItemPage(){
         String bikeLightDetails = "A red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.";
         User user = new User("standard_user", "secret_sauce");
-        Product bikeLight = new Product("Sauce Labs Bike Light", "$9.98", bikeLightDetails);
+        Product bikeLight = new Product("Sauce Labs Bike Light", "$9.99", bikeLightDetails);
         loginPageFactory
                 .openPage()
                 .loginViaModel(user)
