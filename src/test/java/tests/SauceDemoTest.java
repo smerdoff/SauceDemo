@@ -110,7 +110,8 @@ public class SauceDemoTest extends BaseTest {
                 .addToCart(onesie)
                 .clickCart()
                 .clickContinueShopping()
-                .urlValidate();
+                .urlValidate()
+                ;
     }
 }
 
