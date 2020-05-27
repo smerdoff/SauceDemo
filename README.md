@@ -26,3 +26,4 @@ mvn -f SauceDemo\pom.xml -Dtest=SauceDemoTest#loginViaCLI -Duser=standard_user -
 Коммент к таск№4:
 Если использовать mvn -Dtest=SauceDemoTest#loginViaCLI -Duser=standard_user -Dpassword=secret_sauce test test
 [ERROR] The goal you specified requires a project to execute but there is no POM in this directory (C:\Users\admin\IdeaProjects). Please verify you invoked Maven from the correct directory.
+ 
