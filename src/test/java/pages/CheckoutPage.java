@@ -2,6 +2,7 @@ package pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 
 public class CheckoutPage extends BasePage {
@@ -21,8 +22,17 @@ public class CheckoutPage extends BasePage {
     private String expectedlastnamePlaceholder = "Last Name";
     private String expectedZipCodePlaceholder = "Zip/Postal Code";
 
-    public void openPage(){
+    @Override
+    public CheckoutPage openPage(){
         driver.get(CHECKOUT_URL);
+        isPageOpened();
+        return this;
+    }
+
+    @Override
+    protected CheckoutPage isPageOpened() {
+        wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(CANCEL_BUTTON));
+        return this;
     }
 
     public void fillInputs(String firstName, String lastName, String zipCode){

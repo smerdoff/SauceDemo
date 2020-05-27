@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class BasePage {
+public abstract class BasePage {
 
     WebDriver driver;
     WebDriverWait wait;
@@ -19,8 +19,10 @@ public class BasePage {
         wait = new WebDriverWait(this.driver, 10);
         actions = new Actions(driver);
     }
+    protected abstract BasePage openPage();
+    protected abstract BasePage isPageOpened();
 
-    public void waitForNumberOfElements(By locator, int numberOfElements){
+    protected void waitForNumberOfElements(By locator, int numberOfElements){
         try {
             wait.until(ExpectedConditions.numberOfElementsToBe(locator,numberOfElements));
         }catch (TimeoutException ex) {
