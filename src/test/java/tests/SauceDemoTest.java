@@ -71,7 +71,7 @@ public class SauceDemoTest extends BaseTest {
     @Description("тест на добавление товара в корзину из страницы с подробным описанием товара")
     public void addItemToCartViaItemPage(){
         User user = new User("standard_user", "secret_sauce");
-        Product onesie = new Product("Sauce Labs Onesie", "$7.99", onesieDesc);
+        Product onesie = new Product("Sauce Labs Onesie", "7.99", onesieDesc);
         loginPageFactory
                 .openPage()
                 .loginViaModel(user)
