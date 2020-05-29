@@ -18,9 +18,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
             } else {
                 System.setProperty("webdriver.chrome.driver", driverPath + "/linux/chromedriver");
             }
-            options.addArguments("--ignore-certificate-errors");
-            options.addArguments("--disable-popup-blocking");
-            options.addArguments("--disable-notifications");
+//            options.addArguments("--ignore-certificate-errors");
+//            options.addArguments("--disable-popup-blocking");
+//            options.addArguments("--disable-notifications");
 
             //options.addArguments("--headless"); // only if you are ACTUALLY running headless
             //options.addArguments("--no-sandbox"); //https://stackoverflow.com/a/50725918/1689770
